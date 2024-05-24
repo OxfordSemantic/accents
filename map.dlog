@@ -1,0 +1,4 @@
+[?product, a, :Product],
+[?product, rdfs:label, ?productName],
+[?product, :hasLink, ?link] :-
+    products_tt(?product, ?productName, ?link) .

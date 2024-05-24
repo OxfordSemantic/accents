@@ -1,0 +1,25 @@
+dstore create accents
+active accents
+
+prefix : <http://demos.rdfox.com/accents/> 
+prefixes add-defaults
+
+import +p ikea_products.ttl
+
+dsource register pruduct_solr type solr \
+    indexes accents 
+
+tupletable create products_fti_tt \
+    data-source-name pruduct_solr \
+    index accents \
+    columns 3 \
+    "solr.q" "label:*{3}*~1" \
+    "solr.rows" 1000 \
+    "1" "{item}" \
+    "1.datatype" "iri" \
+    \
+    "2" "{label}" \
+    \
+    "3.type" "parameter"
+
+endpoint start

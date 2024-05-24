@@ -1,0 +1,5 @@
+SELECT ?prod ?actualLabel ?searchLabel
+WHERE {
+    VALUES ?searchLabel {"besta"}
+    TT products_fti_tt {?prod ?actualLabel ?searchLabel}
+}

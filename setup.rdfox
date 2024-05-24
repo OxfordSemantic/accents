@@ -1,0 +1,29 @@
+dstore create accents_setup
+active accents_setup
+
+prefix : <http://demos.rdfox.com/accents/> 
+prefixes add-defaults
+
+dsource register products_ds type delimitedFile \
+    file "/Users/valeriococchi/accents/ikea.csv" \
+    header "true"
+
+tupletable create products_tt \
+    data-source-name products_ds \
+    "columns" 3 \
+    "1" "http://demos.rdfox.com/accents/product_{item_id}" \
+    "1.datatype" "iri" \
+    \
+    "2" "{name}" \
+    "2.datatype" "string" \
+    \
+    "3" "{link}" \
+    "3.datatype" "string"
+
+import map.dlog
+export ikea_products.ttl text/turtle fact-domain all
+
+set output literals.csv
+set query.answer-format text/csv
+select ?item ?label where {?item rdfs:label ?label}
+set output null

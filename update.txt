@@ -1,0 +1,14 @@
+# Add update to RDFox
+curl -X POST "localhost:12110/datastores/accents/sparql" --data "update=INSERT DATA {:product_00 rdfs:label \"Hàålfoørs\"}"
+
+# Get new labels from RDFox
+curl -X POST "localhost:12110/datastores/accents/sparql" --data "query=SELECT ?item ?label WHERE {?item rdfs:label ?label}" --header "Accept: text/csv" --output /Users/valeriococchi/accents/literals_update.csv
+
+# Delete old data from Solr collection
+curl 'http://localhost:8983/solr/accents/update?commit=true' --header "Content-Type: text/xml" --data-binary '<delete><query>*:*</query></delete>'
+
+# Populate Solr collection with new data from RDFox
+curl 'http://localhost:8983/solr/accents/update?commit=true' --data-binary @/Users/valeriococchi/accents/literals_update.csv --header 'Content-type: text/csv'
+
+# Remove literals data
+rm /Users/valeriococchi/accents/literals_update.csv
