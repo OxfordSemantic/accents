@@ -68,7 +68,7 @@ The `start.rdfox` script:
 
 ## Querying with Accent-Insensitive Search
 
-You can now query the system using SPARQL with the tuple table. For example:
+You can now query the system using SPARQL at http://localhost:12110/console/datastores/sparql?datastore=accents. For example:
 
 ```sparql
 SELECT ?prod ?actualLabel ?searchLabel
