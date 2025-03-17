@@ -1,6 +1,6 @@
-/Users/valeriococchi/solr-9.4.1/bin/solr start
-/Users/valeriococchi/solr-9.4.1/bin/solr delete -c accents
-/Users/valeriococchi/solr-9.4.1/bin/solr create -c accents
-cp ./managed-schema.xml /Users/valeriococchi/solr-9.4.1/server/solr/accents/conf/managed-schema.xml
-/Users/valeriococchi/solr-9.4.1/bin/solr restart
-curl 'http://localhost:8983/solr/accents/update?commit=true' --data-binary @/Users/valeriococchi/accents/literals.csv -H 'Content-type: text/csv'
+~/solr-9.4.1/bin/solr start
+~/solr-9.4.1/bin/solr delete -c accents
+~/solr-9.4.1/bin/solr create -c accents
+cp ./managed-schema.xml ~/solr-9.4.1/server/solr/accents/conf/managed-schema.xml
+~/solr-9.4.1/bin/solr restart
+curl 'http://localhost:8983/solr/accents/update?commit=true' --data-binary @literals.csv -H 'Content-type: text/csv'
