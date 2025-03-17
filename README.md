@@ -57,7 +57,7 @@ curl 'http://localhost:8983/solr/accents/update?commit=true' --data-binary @lite
 
 ```bash
 # Run the RDFox start script
-/path/to/RDFox sandbox start.rdfox
+/path/to/RDFox sandbox . start.rdfox
 ```
 
 The `start.rdfox` script:
@@ -83,7 +83,7 @@ This query will find products with labels like "BESTÅ" even when searching for 
 ## Updating Data
 
 RDFox and Solr will need to be maintained up to date separately in this demo.
-It is also possible to use `[Delta Queries]` `(https://docs.oxfordsemantic.tech/transactions.html#id5)` to help keep this in sync.
+It is also possible to use [Delta Queries](https://docs.oxfordsemantic.tech/transactions.html#id5) to help keep this in sync.
 
 
 We can add an extreme example. The following query will find products with labels like "Hàålfoørs" even when searching for "hallfors" (without accents).
