@@ -10,5 +10,5 @@ curl 'http://localhost:8983/solr/accents/update?commit=true' --header "Content-T
 # Populate Solr collection with new data from RDFox
 curl 'http://localhost:8983/solr/accents/update?commit=true' --data-binary @literals_update.csv --header 'Content-type: text/csv'
 
-# Remove literals data
+# Optionally, remove literals data
 rm ./literals_update.csv
