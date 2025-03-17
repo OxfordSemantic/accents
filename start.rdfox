@@ -13,7 +13,7 @@ tupletable create products_fti_tt \
     data-source-name pruduct_solr \
     index accents \
     columns 3 \
-    "solr.q" "label:*{3}*~1" \
+    "solr.q" "label:*{3}*~2" \
     "solr.rows" 1000 \
     "1" "{item}" \
     "1.datatype" "iri" \
